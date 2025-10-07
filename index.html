@@ -57,7 +57,7 @@
     </a-scene>
     <script>
       document.addEventListener('click', function (event) {
-        let click_pos = evt.detail.intersection.point;
+        let click_pos = event.detail.intersection.point;
         let tree = document.querySelector("#tree");
         if(tree) tree.remove();
         const parent = document.querySelector("#objects");
