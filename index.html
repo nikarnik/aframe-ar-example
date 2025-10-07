@@ -31,8 +31,8 @@
       
       <a-entity position="0 0.4 0">
         <a-entity camera look-controls wasd-controls="acceleration:10;">
-          <a-entity position="0 0 -1"
-                    geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
+          <a-entity position="0 0 -0.5"
+                    geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.15;"
                     material="color: cyan; shader: flat"
                     cursor="maxDistance: 30; fuse: true">
             <a-animation begin="click" easing="ease-in" attribute="scale"
@@ -57,7 +57,7 @@
     </a-scene>
     <script>
       document.addEventListener('click', function (event) {
-        document.querySelector("objects").appendChild("<a-cylinder position='2 1.0 -2' height='4.5' radius='0.2' color='brown'></a-cylinder>")
+        document.querySelector("#objects").appendChild("<a-cylinder position='2 1.0 -2' height='4.5' radius='0.2' color='brown'></a-cylinder>")
       })
     </script>
   </body>
