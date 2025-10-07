@@ -57,8 +57,16 @@
     </a-scene>
     <script>
       document.addEventListener('click', function (event) {
-        document.querySelector("#objects").appendChild("<a-cylinder position='2 1.0 -2' height='4.5' radius='0.2' color='brown'></a-cylinder>")
-      })
+        const parent = document.querySelector("#objects");
+        if (parent) {
+          const cylinder = document.createElement('a-cylinder');
+          cylinder.setAttribute('position', '2 1.0 -2');
+          cylinder.setAttribute('height', '4.5');
+          cylinder.setAttribute('radius', '0.2');
+          cylinder.setAttribute('color', 'brown');
+          parent.appendChild(cylinder);
+        }
+      });
     </script>
   </body>
 </html>
