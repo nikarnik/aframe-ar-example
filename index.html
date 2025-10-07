@@ -31,7 +31,7 @@
       
       <a-entity position="0 0.4 0">
         <a-entity camera look-controls wasd-controls="acceleration:10;">
-          <a-entity position="0 0 0"
+          <a-entity position="0 0 -1"
                     geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
                     material="color: cyan; shader: flat"
                     cursor="maxDistance: 30; fuse: true">
@@ -55,5 +55,10 @@
       <a-plane follow-shadow="#objects" material="shader:shadow" shadow="cast:false;" rotation="-90 0 0" width="2" height="2"></a-plane>
       <a-sky color="#ECECEC" hide-on-enter-ar></a-sky>
     </a-scene>
+    <script>
+      document.addEventListener('click', function (event) {
+        document.querySelector("objects").appendChild("<a-cylinder position='2 1.0 -2' height='4.5' radius='0.2' color='brown'></a-cylinder>")
+      })
+    </script>
   </body>
 </html>
