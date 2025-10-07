@@ -34,7 +34,8 @@
           <a-entity position="0 0 -0.5"
                     geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.15;"
                     material="color: cyan; shader: flat"
-                    cursor="maxDistance: 30; fuse: true">
+                    cursor="maxDistance: 30; fuse: true"
+                    id="cursor">
             <a-animation begin="click" easing="ease-in" attribute="scale"
                 fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
             <a-animation begin="fusing" easing="ease-in" attribute="scale"
@@ -56,14 +57,15 @@
       <a-sky color="#ECECEC" hide-on-enter-ar></a-sky>
     </a-scene>
     <script>
-      this.el.addEventListener('click', function (event) {
-        let click_pos = event.detail.intersection.point;
+      document.addEventListener('click', function (event) {
+        let click_pos = document.querySelector("#cursor").getAttribute("position");
+        let coords = click_pos.split(" ")
         let tree = document.querySelector("#tree");
         if(tree) tree.remove();
         const parent = document.querySelector("#objects");
         if (parent) {
           const cylinder = document.createElement('a-cylinder');
-          cylinder.setAttribute('position', `${click_pos.x} ${click_pos.y} ${click_pos.z}`);
+          cylinder.setAttribute('position', `${coords[0]} ${coords[1]} ${coords[2]}`);
           cylinder.setAttribute('height', '4.5');
           cylinder.setAttribute('radius', '0.2');
           cylinder.setAttribute('color', 'brown');
