@@ -59,7 +59,7 @@
     <script>
       document.addEventListener('click', function (event) {
         let click_pos = document.querySelector("#cursor").getAttribute("position");
-        let coords = click_pos.split(" ")
+        let coords = String(click_pos).split(" ")
         let tree = document.querySelector("#tree");
         if(tree) tree.remove();
         const parent = document.querySelector("#objects");
