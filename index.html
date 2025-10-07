@@ -57,13 +57,17 @@
     </a-scene>
     <script>
       document.addEventListener('click', function (event) {
+        let click_pos = evt.detail.intersection.point;
+        let tree = document.querySelector("#tree");
+        if(tree) tree.remove();
         const parent = document.querySelector("#objects");
         if (parent) {
           const cylinder = document.createElement('a-cylinder');
-          cylinder.setAttribute('position', '2 1.0 -2');
+          cylinder.setAttribute('position', `${click_pos.x} ${click_pos.y} ${click_pos.z}`);
           cylinder.setAttribute('height', '4.5');
           cylinder.setAttribute('radius', '0.2');
           cylinder.setAttribute('color', 'brown');
+          cylinder.setAttribute('id', 'tree')
           parent.appendChild(cylinder);
         }
       });
